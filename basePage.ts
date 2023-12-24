@@ -1,7 +1,6 @@
 import { Builder, By, Capabilities, until, WebDriver, WebElement, Actions } from "selenium-webdriver";
 const chromedriver = require('chromedriver'); 
 
-
 interface Options {
     driver?: WebDriver; 
     //if no driver is supplied we make one or use the one in our constructor.
@@ -12,15 +11,15 @@ interface Options {
 export class BasePage {
     driver: WebDriver; 
     url: string; 
-   
-
+    
     constructor(options?: Options) {
-       
         if (options && options.driver) this.driver = options.driver
+        
         else
         this.driver = new Builder().withCapabilities(Capabilities.chrome()).build();
         if(options && options.url) this.url = options.url
-    }; 
+};
+ 
     async navigate(url?: string): Promise<void> {
         if (url) return await this.driver.get(url)//!is when url is given in the test i.e page.navigate(www.whatever.co)
         else if (this.url) return await this.driver.get(this.url)//!is when the url is given in the page object 'this' referring to the class.

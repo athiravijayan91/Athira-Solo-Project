@@ -2,12 +2,6 @@ import {olivePageClass} from './oliveGardenpage'
 import { Driver } from 'selenium-webdriver/chrome'
 const fs = require('fs')// calling library file system
 const olivePage = new olivePageClass()
-
-
-
-
-
-
 test ('adding food items to cart', async()=>{
     
     await olivePage.navigate()
@@ -17,43 +11,52 @@ test ('adding food items to cart', async()=>{
      await olivePage.driver.sleep(2000)
      await olivePage.click(olivePage.toGoBtn)
      await olivePage.driver.sleep(2000)
-     await olivePage.click(olivePage.soupBtn)
+     
+     await olivePage.click(olivePage.dessertBtn)
      await olivePage.driver.sleep(1000)
-     await olivePage.click(olivePage.saladBtn)
-     await olivePage.driver.sleep(2000)
+     await olivePage.click(olivePage.lasagna)
+     await olivePage.driver.sleep(1000)
+     await olivePage.click(olivePage.addCrt)
+     //await olivePage.driver.sleep(1000)
+     await olivePage.click(olivePage.cofirmCrt)
+     //await olivePage.driver.sleep(1000)
+     await olivePage.click(olivePage.popupBtn)
+     //await olivePage.driver.sleep(1000)
 
-    /*await automationPage.click(automationPage.contShop)
-    await automationPage.driver.sleep(2000)
-    await automationPage.click(automationPage.secondPdt)
-    await automationPage.driver.sleep(2000)
-    await automationPage.click(automationPage.contShop)
-    await automationPage.driver.sleep(2000)
-    await automationPage.click(automationPage.thirdPdt)
-    await automationPage.driver.sleep(2000)
-    await automationPage.click(automationPage.contShop)
-    await automationPage.driver.sleep(2000)
-    await automationPage.click(automationPage.fourthPdt)
-    await automationPage.driver.sleep(3000)
+     //await olivePage.click(olivePage.cartIcon)
+     //await olivePage.driver.sleep(1000)
+     //await olivePage.click(olivePage.closeCrtIcon)
+     await olivePage.driver.sleep(3000)
+
+
+     await olivePage.click(olivePage.drinkBtn)
+     await olivePage.driver.sleep(1000)
+     await olivePage.click(olivePage.capucino)
+     await olivePage.driver.sleep(1000)
+     await olivePage.click(olivePage.addCrt)
+     await olivePage.click(olivePage.cartIcon)
+     await olivePage.driver.sleep(3000)
+
+    let Cart1= await olivePage.getText(olivePage.itemcrt1)
+     expect(Cart1).toContain('NEW Chocolate Lasagna')
+    let Cart2= await olivePage.getText(olivePage.itemcrt2)
+     expect(Cart2).toContain('OG House Cappuccino')
     
-    await automationPage.click(automationPage.viewCart)
-    await automationPage.driver.sleep(2000)
-    let Cart1= await automationPage.getText(automationPage.cartBlue)
-    expect(Cart1).toContain('Blue Top')
+    
+    /*await olivePage.click(olivePage.dessertBtn)
+     await olivePage.driver.sleep(5000)
+     await olivePage.click(olivePage.tiramisu)
+     await olivePage.driver.sleep(1000)
+     await olivePage.click(olivePage.addCrt)
+     await olivePage.click(olivePage.cartIcon)
+     await olivePage.driver.sleep(5000)*/
 
     
 
-    let Cart2 = await automationPage.getText(automationPage.cartMenTs)
-    expect(Cart2).toContain('Men Tshirt')
-   
-
-   let Cart3 = await automationPage.getText(automationPage.cartSleeveless)
-    expect(Cart3).toContain('Sleeveless Dress')
-
-    let Cart4 = await automationPage.getText(automationPage.cartStylishdress)
-    expect(Cart4).toContain('Stylish Dress')
+ 
 
 
-    await automationPage.click(automationPage.cartDel1)
+   /* await automationPage.click(automationPage.cartDel1)
     expect(automationPage.cartTable).not.toContain('Blue Top')
     await automationPage.driver.sleep(1000)
 
@@ -72,7 +75,6 @@ test ('adding food items to cart', async()=>{
 
 
 })
-
 afterAll(async () => {
    await olivePage.driver.quit()
 })
