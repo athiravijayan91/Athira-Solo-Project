@@ -35,6 +35,15 @@ export class olivePageClass extends BasePage {
     amfrkOrderbtn: By = By.xpath('//div[@class="css-1dbjc4n r-1awozwy r-1bhbjqr r-m9c94c r-1xfd6ze r-rs99b7 r-1loqt21 r-1777fci r-peo1c r-6dt33c r-xd6kpl r-1m04atk r-1pyaxff r-tskmnb r-1otgn73 r-13qz1uu"]')
     amfrkTogo: By = By.xpath('//img[@alt="Order Olive Garden To Go and have it delivered to your car when you pick it up."]')
 
+    waitlist: By = By.xpath('//a[text()="Join Waitlist"]')
+    waitnumber: By = By.xpath('//div[text()="5"]')
+    firstName: By = By.xpath('//input[@placeholder="First Name*"]')
+    lastName: By = By.xpath('//input[@placeholder="Last Name*"]')
+    mobileNumber: By = By.xpath('//input[@placeholder="Mobile number*"]')
+    emailaddress: By = By.xpath('//input[@placeholder="Email*"]')
+    joinWaitlist: By = By.xpath('//div[text()="JOIN WAITLIST"]')
+    waitlistCOnfirmtext: By = By.xpath('//div[text()="Thank you for joining our waitlist."]')
+
    /*gSign: By = By.xpath('//span[text()="Sign in"]')
    gemail: By = By.xpath('//input[@type="email"]')
    gNext: By = By.xpath('//span[text()="Next"]')
