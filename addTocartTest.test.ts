@@ -34,6 +34,7 @@ test ('adding food items to cart', async()=>{
      await olivePage.click(olivePage.capucino)
      await olivePage.driver.sleep(1000)
      await olivePage.click(olivePage.addCrt)
+     await olivePage.driver.sleep(1000)
      await olivePage.click(olivePage.cartIcon)
      await olivePage.driver.sleep(3000)
 

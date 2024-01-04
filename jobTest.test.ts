@@ -9,12 +9,13 @@ test ('view job details ', async()=>{
     await olivePage.driver.manage().window().maximize()
     await olivePage.driver.sleep(2000)
     await olivePage.click(olivePage.careers)
-    await olivePage.driver.sleep(1000)
-    //await olivePage.tabs();
-    await olivePage.click(olivePage.jobSearch)
+    await olivePage.driver.sleep(2000)
+    //await olivePage.click(olivePage.jobSearch)
+    await olivePage.tabs();
+   
     
   
-    //await olivePage.driver.sleep(5000)
+    await olivePage.driver.sleep(3000)
     
 
     

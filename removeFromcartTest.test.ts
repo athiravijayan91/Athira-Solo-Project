@@ -27,34 +27,10 @@ test ('adding food items to cart', async()=>{
 
      let text= await olivePage.getText(olivePage.emptyText)
      expect(text).toContain('Your cart is empty.')
-
-     /*await olivePage.driver.sleep(5000)
-     await olivePage.click(olivePage.tourOfitaly)
-     await olivePage.click(olivePage.addCrt)
-     await olivePage.driver.sleep(5000)
-     //await olivePage.click(olivePage.cofirmCrt)
-     
-     
-     await olivePage.click(olivePage.viewCart)
-     await olivePage.driver.sleep(6000)
+     await olivePage.driver.sleep(2000)
 
      
      
-     /*
-     await olivePage.click(olivePage.lunchFav)
-     await olivePage.driver.sleep(1000)
-    await olivePage.click(olivePage.chknPar)
-     
-  
-     await olivePage.click(olivePage.drinkBtn)
-     await olivePage.driver.sleep(1000)
-     await olivePage.click(olivePage.capucino)
-     await olivePage.driver.sleep(1000)
-     await olivePage.click(olivePage.addCrt)
-     await olivePage.click(olivePage.cartIcon)
-     await olivePage.driver.sleep(3000)*/
-    
-
 })
 afterAll(async () => {
    await olivePage.driver.quit()

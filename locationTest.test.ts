@@ -16,9 +16,11 @@ test ('loging in to the account with valid credentials', async()=>{
     await olivePage.click(olivePage.americanFork)
     await olivePage.driver.sleep(2000)
     await olivePage.click(olivePage.amfrkOrderbtn)
-    await olivePage.driver.sleep(2000)
+    //await olivePage.driver.sleep(2000)
     await olivePage.click(olivePage.amfrkTogo)
     await olivePage.driver.sleep(2000)
+    let text= await olivePage.getText(olivePage.americanforkLocationtxt)
+     expect(text).toContain('AMERICAN FORK')
 
     
   

@@ -34,7 +34,9 @@ export class olivePageClass extends BasePage {
     findLocation: By = By.xpath('//input[@placeholder="Search by city, state or zip code"]')
     americanFork: By = By.xpath('//div[text()="American Fork"]')
     amfrkOrderbtn: By = By.xpath('//div[@class="css-1dbjc4n r-1awozwy r-1bhbjqr r-m9c94c r-1xfd6ze r-rs99b7 r-1loqt21 r-1777fci r-peo1c r-6dt33c r-xd6kpl r-1m04atk r-1pyaxff r-tskmnb r-1otgn73 r-13qz1uu"]')
-    amfrkTogo: By = By.xpath('//img[@alt="Order Olive Garden To Go and have it delivered to your car when you pick it up."]')
+    amfrkTogo: By = By.xpath('(//img[@alt="To-Go Icon: Order all your favorites from Olive Garden To Go."])[1]')
+    americanforkLocationtxt: By = By.xpath('(//div[text()="American Fork"])[1]')
+
 
     waitlist: By = By.xpath('//a[text()="Join Waitlist"]')
     waitnumber: By = By.xpath('//div[text()="5"]')
@@ -95,33 +97,34 @@ export class olivePageClass extends BasePage {
      
 
     okBtn: By = By.xpath('//button[@class="sc-dcJsrY fYJCJr"]')
-    jobSearch: By = By.xpath('(//a[@class="dropdown-toggle show"])')
-   /*gSign: By = By.xpath('//span[text()="Sign in"]')
-   gemail: By = By.xpath('//input[@type="email"]')
-   gNext: By = By.xpath('//span[text()="Next"]')
-   gpwd: By = By.xpath('//input[@type="password"]')*/
+    jobSearch: By = By.xpath('(//li[@class="nav-item"])[2]')
+    host: By = By.xpath('(//a[text()="Hosts "])')
+    hostJob: By = By.xpath('(//td[@class="reference-number-column"])[2]')
+   
 
 
 
     constructor(){
-        super({url: 'https://www.olivegarden.com'}); 
-        //options.arguments('incognito')
-        //options = super.ChromeOptions()
-        //super({url: 'http://www.olivegarden.com/customer-service/account-login'})        
+        super({url: 'https://www.olivegarden.com'});       
     }; 
+
     async tabs(){
         let myTabs = await this.driver.getAllWindowHandles(); 
         await this.driver.switchTo().window(myTabs[1]); 
         await this.driver.sleep(1500); 
-        //await this.click(this.okBtn)
-        //await this.driver.switchTo().alert().dismiss()
+        await this.click(this.jobSearch)
+        await this.driver.sleep(2000); 
+        await this.click(this.host)
+        await this.driver.sleep(1500); 
+        await this.click(this.hostJob)
+        
         fs.writeFile(`${__dirname}/xPicture.png`,
         await this.driver.takeScreenshot(), "base64", 
         (e) => {
             if (e) console.log(e);
             else console.log("A picture is worth a thousand words"); 
         }); 
-        await this.driver.close(); 
-        await this.driver.switchTo().window(myTabs[0]);
+        //await this.driver.close(); 
+        //await this.driver.switchTo().window(myTabs[0]);
     }
 };

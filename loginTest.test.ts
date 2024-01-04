@@ -11,18 +11,24 @@ test ('log in with valid credentials', async()=>{
     await olivePage.driver.manage().window().maximize()
     //await olivePage.driver.sleep(1000)
     await olivePage.click(olivePage.loginBtn)
-    //await olivePage.driver.sleep(1000)
+    await olivePage.driver.sleep(1000)
     await olivePage.setInput(olivePage.email, 'avijayan@boostability.com')
-    //await olivePage.driver.sleep(1000)
+    await olivePage.driver.sleep(1000)
     await olivePage.setInput(olivePage.password, 'Olive123@')
     await olivePage.driver.sleep(1000)
     await olivePage.click(olivePage.signinBtn)
-    //await olivePage.driver.sleep(5000)
-    //await olivePage.navigate('https://www.olivegarden.com/customer-service/recent-activity?_requestid=255995')
+    await fs.writeFile(`${__dirname}/login.png`,
+    await olivePage.driver.takeScreenshot(), "base64",   //used .driver here since it is a built in method in selenium
+    (e) => {
+        if (e) console.error(e)
+        else console.log('Saved Succesfully')
+    }
+    )
+    
   
 })
 afterAll(async () => {
-    //await olivePage.driver.quit()
+    await olivePage.driver.quit()
 })
 
 
